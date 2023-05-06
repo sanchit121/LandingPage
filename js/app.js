@@ -65,7 +65,7 @@ const scrollToTop = () => {
 /** @description Create Nav dynamically */
 const createNav = () => {
   sectionsElements.forEach((section) => {
-    navItems += `<li> <a class="nav__link menu__link" href="#${section.id}" id="li__${section.id}">
+    navItems += `<li> <a class="menu__link" href="#${section.id}" id="li__${section.id}">
           ${section.dataset.nav}</a></li>`;
   });
   const navbarList = document.getElementById("navbar__list");

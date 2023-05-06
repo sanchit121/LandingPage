@@ -7,7 +7,7 @@
 
 ## Instructions
 
-This is Landing Page where we have dynamic nav bar. It is hosted on
+This is Landing Page where we have dynamic nav bar. It is hosted on https://sanchit121.github.io/LandingPage/
 
 For running this project locally please clone this project and open index.html
 

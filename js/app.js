@@ -32,7 +32,7 @@ let navItems = "";
  *
  */
 
-/** @description Helper function to add active class
+/** @description Helper function to add a class
  * @param {HTMLElement} element
  * @param {string} classToAdd
  */
@@ -40,24 +40,14 @@ const addClass = (element, classToAdd) => {
   element.classList.add(classToAdd);
 };
 
-/** @description Helper function to remove active class
- * @param {HTMLElement} section
+/** @description Helper function to remove a class
+ * @param {HTMLElement} element
  * @param {string} classToRemove
  */
 const removeClass = (element, classToRemove) => {
   element.classList.remove(classToRemove);
 };
 
-/** @description Helper function to scroll to show or hide scroll button
- *
- */
-const updateScrollToButtonVisibility = () => {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollToButton.style.display = "block";
-  } else {
-    scrollToButton.style.display = "none";
-  }
-};
 /** @description Helper function to scroll to top
  *
  */
@@ -86,7 +76,7 @@ const createNav = () => {
 createNav();
 
 /** @description adding active class to current section and highlighting the nav*/
-const makeActiveSection = () => {
+const updateSectionAndNavOnScroll = () => {
   sectionsElements.forEach((section) => {
     let elementOffset = section.getBoundingClientRect();
     const currentNavItem = document.getElementById(`li__${section.id}`);
@@ -100,13 +90,24 @@ const makeActiveSection = () => {
   });
 };
 
+/** @description Function to scroll to show or hide scroll to button
+ *
+ */
+const updateScrollToButtonVisibility = () => {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToButton.style.display = "block";
+  } else {
+    scrollToButton.style.display = "none";
+  }
+};
+
 /**
  * End Main Functions
  * Begin Events
  *
  */
 
-document.addEventListener("scroll", makeActiveSection);
+document.addEventListener("scroll", updateSectionAndNavOnScroll);
 
 window.onscroll = function () {
   updateScrollToButtonVisibility();
